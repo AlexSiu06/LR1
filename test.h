@@ -5,8 +5,6 @@ void TestCreate(void);
 
 void TestCopy(void);
 
-void TestPushBack(void);
-
 void TestClear(void);
 
 void TestPushBack(void);
