@@ -7,5 +7,7 @@ void DoubleDestructor(void* object);
 
 void VectorDestructor(void* vector);
 
+void SegmentDesrtuctor(void* Segment);
+
 #endif  // DESTRUCT_H
 
