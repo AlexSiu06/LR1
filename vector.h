@@ -1,15 +1,21 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 #include <stddef.h>
+
+typedef struct TypeInfo{
+    size_t size_element;
+    int (*compare)(const void*, const void*);
+    void (*destruct)(void*);
+}TypeInfo;
+
 typedef struct Vector {
     size_t size;
     void* data;
     size_t capacity;
-    size_t size_element;
-    int (*compare)(const void*, const void*);
+    TypeInfo type_info;
 } Vector;
 
-void Create(Vector* vector, size_t size, size_t size_element, int (*compare)(const void*, const void*));
+void Create(Vector* vector, size_t capacity, TypeInfo type_info);
 
 void VectorDestructor(void* vector);
 
@@ -19,7 +25,7 @@ void PushBack(Vector* vector, const void* value);
 
 Vector Copy(const Vector* other);
 
-void PopBack(Vector* vector, void (*Destructor)(void*));
+void PopBack(Vector* vector);
 
 void* GetElement(Vector vector, size_t index);
 
@@ -29,7 +35,7 @@ int Insert(Vector* vector, const void* value, size_t index);
 
 Vector Where(const Vector* vector, int Predicate(void*));
 
-Vector Map(size_t count_segment,size_t size);
+Vector Map(Vector* vector, void (*unary)(void*));
 
 Vector Concatenate(const Vector* vector1, const Vector* vector2);
 
