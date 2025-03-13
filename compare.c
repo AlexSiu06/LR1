@@ -1,8 +1,8 @@
 #include "compare.h"
 
 int IntCompare(const void* lhs, const void* rhs){
-    int* copy_lhs = (int*)lhs;
-    int* copy_rhs = (int*)rhs;
+    const int* copy_lhs = (const int*)lhs;
+    const int* copy_rhs = (const int*)rhs;
     if(*copy_lhs > *copy_rhs){
         return 1;
     }else if(*copy_lhs < *copy_rhs){
@@ -13,8 +13,8 @@ int IntCompare(const void* lhs, const void* rhs){
 }
 
 int DoubleCompare(const void* lhs, const void* rhs){
-    double* copy_lhs = (double*)lhs;
-    double* copy_rhs = (double*)rhs;
+    const double* copy_lhs = (const double*)lhs;
+    const double* copy_rhs = (const double*)rhs;
     if(*copy_lhs > *copy_rhs){
         return 1;
     }else if(*copy_lhs < *copy_rhs){
